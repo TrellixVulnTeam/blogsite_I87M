@@ -1,0 +1,8 @@
+{% extends 'myblog/base.html' %}
+{% block content %}
+  <div class='blog-post'>
+      <h1> {{ object.title }} </h1>
+      <p> posted on {{ object.posted_in }} </p>
+      <p> {{ object.content }} </p>
+  </div>
+{% endblock content %}

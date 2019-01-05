@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href= "{% static 'myblog/theme.css' %}">
+  <title></title>
+  
+</head>
+<body>
+  <div class='nav-bar'>
+    <div class='nav-bar-title'>
+    <h1>My blog</h1>
+    <p class='nav-bar-legend'>my little blog<br>about programming</p>
+    </div>
+    <div class='nav-bar-links'>
+      <ul class='nav-bar-links'>
+      <li><a href='{% url "home" %}'> Home </a></li>
+      <li><a href='{% url "about-me" %}'> About me </a></li>
+      <li><a href='{% url "subscribe" %}'> Subscribe! </a></li>
+      </ul>
+    </div>
+  </div>
+  <!--Side menu-->
+  
+  <div class='side-box'>
+    <h3> My Blog </h3>
+    <br>
+    <p> lorem ispum lorem ispum lorem ispum lorem ispum lorem 
+    ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem 
+    ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum 
+    </p>  
+  </div>
+  {% if messages %}
+    {% for message in messages%}
+      <p> {{message.tag}}</p>
+    {% endfor %}
+  {% endif %}
+  {% block content %}
+  {% endblock content %}
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<style>
+body {
+    background-image: url();
+    background-color: lightgrey;
+  }
+  
+.nav-bar {
+  position:relative;
+  overflow: hidden;
+  background-color:#FFA07A;
+  width: 100%;
+  height: 100px;
+  }
+  
+.nav-bar-title {
+  position:absolute;
+  font-family: calibri;
+  color: white;
+  text-align: right;
+  float: right;
+  right: 50px;
+  bottom: 25px; 
+  }
+  
+.nav-bar-legend {
+  position: absolute;
+  font-size: 12px;
+  letter-spacing: 1px
+  text-align:left;
+  top: 50px;
+  right: 5px;
+  width: 100;
+  }
+  
+.nav-bar-links{
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  list-style-type: none;
+  display: inline;
+  }
+  
+li a {
+  float: left;
+  display:block;
+  color: white;
+  padding: 40px;
+  font-size: 20px;
+  text-decoration: none;
+  }
+  
+li a:hover{
+  animation-name: filled;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  }
+  
+  
+.side-box{
+  position: absolute;
+  padding: 5px;
+  border: 1px;
+  right: 2px;
+  width: 200px;
+  top: 130px;
+  }
+  
+.side-box h3 {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: calibri;
+  background-color:#FFA07A;
+  padding: 5px;
+  margin: 1%;
+  }
+  
+.side-box p {
+  position: relative;
+  text-align: center;
+  color: #FFA07A;
+  font-family: calibri;
+  background-color: white;
+  padding: 5px;
+  margin: 1%;
+  top: -15px;
+  }
+  
+.blog-post{
+  position: relative;
+  background-color: white;
+  width: 70%;
+  height: auto;
+  top: 15px;
+  left: 40px; 
+  }
+    
+.blog-post h1 {
+  text-decoration: none;
+  font-family: calibri;
+  color: #FFA07A;
+  letter-spacing: 2.5px;
+  padding: 10px;
+  }
+  
+.blog-post p {
+  font-family: calibri;
+  color: #292929;
+  letter-spacing: 0.2px;
+  margin: 10px;
+  margin-bottom: 30px;
+  margin-top: -10px;
+  }
+  
+@keyframes filled {
+    0% {
+      background-color: #FFA07A;
+    }
+    100% {
+      background-color: #F5F5DC;
+    }
+  
+</style>
