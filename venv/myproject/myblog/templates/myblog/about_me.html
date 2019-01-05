@@ -1,8 +1,24 @@
 {% extends 'myblog/base.html' %}
+{% load static %}
 {% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'myblog/wip.css' %}">
+</head>
+<body>
     <div class='blog post'>
     	<h1> About me </h1>
     	<p> UNDER CONSTRUCTION PLEASE HOLD.</p>	
-    </div>
+    	<div class='ballpos'> 
+	 		<div class='ball'></div>
+  			<div class='ball'></div>
+  			<div class='ball'></div>  
+		</div>
+	</div>
+</body>
+</html>
+
 {% endblock content %}
 

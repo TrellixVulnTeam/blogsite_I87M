@@ -33,7 +33,7 @@
   </div>
   {% if messages %}
     {% for message in messages%}
-      <p> {{message.tag}}</p>
+      {{message}}
     {% endfor %}
   {% endif %}
   {% block content %}
