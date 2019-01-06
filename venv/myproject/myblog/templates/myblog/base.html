@@ -3,16 +3,13 @@
 <html>
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href= "{% static 'myblog/theme.css' %}">
   <title></title>
   
 </head>
 <body>
   <div class='nav-bar'>
-    <div class='nav-bar-title'>
-    <h1>My blog</h1>
-    <p class='nav-bar-legend'>my little blog<br>about programming</p>
-    </div>
     <div class='nav-bar-links'>
       <ul class='nav-bar-links'>
       <li><a href='{% url "home" %}'> Home </a></li>
@@ -20,6 +17,10 @@
       <li><a href='{% url "subscribe" %}'> Subscribe! </a></li>
       </ul>
     </div>
+  </div>
+  <div class='nav-bar-title'>
+    <h1>My blog</h1>
+    <p class='nav-bar-legend'>my little blog<br>about programming</p>
   </div>
   <!--Side menu-->
   
@@ -32,9 +33,11 @@
     </p>  
   </div>
   
-  <button>
-    <a href='{% url "postCreate" %}'> Create new post </a>
-  </button> 
+  <div class='buttons'>
+    <button>
+      <a href='{% url "postCreate" %}'> Create new post </a>
+    </button> 
+  </div>
   
   {% if messages %}
     {% for message in messages%}
