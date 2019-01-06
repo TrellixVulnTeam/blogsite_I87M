@@ -2,6 +2,7 @@ from django.shortcuts import render
 from . import templates
 from .models import post
 from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic.edit import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
@@ -15,6 +16,13 @@ class PostListView(ListView):
 	template_name = 'myblog/home.html'
 	context_object_name = 'post'
 	ordering = '-posted_in'
+
+class PostUpdateView(LoginRequiredMixin, UpdateView):
+	model = post
+	fields = ['title', 'content']
+	template_name = 'Post_Form.html'
+	success_url = ' '
+	
 
 class PostDetailView(DetailView):
 	model = post

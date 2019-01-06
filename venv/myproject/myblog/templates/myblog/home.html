@@ -5,6 +5,10 @@
       <h1><a href='{% url "post-detail" p.id %}'> {{p.title}} </a></h1>
       <p> posted on {{ p.posted_in }} </p>
       <p> {{ p.content }} </p>
+      <form method='post'>
+      	{% csrf_token %}
+      	<a href= "{% url 'PostUpdate' %}"><input type='submit' value='update'></a>
+      </form>
   </div>
     {% endfor %}
 {% endblock content %}

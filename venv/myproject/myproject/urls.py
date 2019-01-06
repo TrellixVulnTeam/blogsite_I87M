@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myblog import views
-from myblog.views import PostListView, PostDetailView, PostCreateView
+from myblog.views import PostListView, PostDetailView, PostCreateView, PostUpdateView
 from subscribe.views import subscribe as subscribe_views
 
 urlpatterns = [
@@ -24,7 +24,8 @@ urlpatterns = [
     path('', PostListView.as_view(), name='home'),
     path('about/', views.about, name='about-me'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('post/new/', PostCreateView.as_view(), name='post-Create'),
+    path('post/new/', PostCreateView.as_view(), name='postCreate'),
+    path('post/update/', PostUpdateView.as_view(), name='PostUpdate'),
     path('subscribe/', subscribe_views, name='subscribe'),
 
 ]

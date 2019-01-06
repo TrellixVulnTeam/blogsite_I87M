@@ -31,6 +31,11 @@
     ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum 
     </p>  
   </div>
+  
+  <button>
+    <a href='{% url "postCreate" %}'> Create new post </a>
+  </button> 
+  
   {% if messages %}
     {% for message in messages%}
       {{message}}
