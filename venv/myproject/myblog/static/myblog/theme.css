@@ -2,7 +2,7 @@
 
 <style>
 
-body {
+html body {
   padding: 5px;
   }
 
@@ -17,12 +17,18 @@ body {
 .nav-bar-title{
   text-align: center;
   font-family: raleway;
-  font-size: 15px;
+  font-size: 25px;
+  padding: 15px;
+  }
+
+.nav-bar-title h1 {
+  border: 1px solid #dfdede;
   }
 
 .nav-bar-legend{
   margin-top: -15px;
   text-align: center;
+  color: black;
   }
   
 .nav-bar-links {
@@ -58,7 +64,7 @@ body {
   box-shadow: 0px 0px 0px 1px #dfdede;
   padding: 2px;
   background-color: white;
-  right: 15px;
+  margin-right: 40px;
   }
 
 .buttons button {
@@ -66,7 +72,7 @@ body {
   float: right;
   margin-top: 350px;
   padding: 2px;
-  margin-right: -155px;
+  margin-right: -195px;
   width: 155px;
   height: 50px;
   background-color: white;

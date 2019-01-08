@@ -1,8 +1,18 @@
 {% extends 'myblog/base.html' %}
 {% block content %}
+<div class= 'blog-content'>
   <div class='blog-post'>
       <h1> {{ object.title }} </h1>
       <p> posted on {{ object.posted_in }} </p>
       <p> {{ object.content }} </p>
+	  <form action='{% url "PostUpdate" post.id %}' method='POST'>
+	   	{% csrf_token %}
+	     	<input type='submit' value='Update'>
+	  </form>
+	  <form action = '{% url "PostDelete" post.id %}' method= 'POST'>
+	  	{% csrf_token %}
+	  		<input type='submit' value='Delete'>
   </div>
+</div>  
 {% endblock content %}
+   

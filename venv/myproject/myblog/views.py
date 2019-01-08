@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from . import templates
 from .models import post
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DeleteView, DetailView, CreateView
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 
 def home(request):
 	context = {
@@ -17,20 +18,23 @@ class PostListView(ListView):
 	context_object_name = 'post'
 	ordering = '-posted_in'
 
+class PostCreateView(LoginRequiredMixin, CreateView):
+	model = post
+	fields= ['title', 'content']
+
+
 class PostUpdateView(LoginRequiredMixin, UpdateView):
 	model = post
-	fields = ['title', 'content']
-	template_name = 'Post_Form.html'
-	success_url = 'home'
+	fields= ['title', 'content']
 
 
 class PostDetailView(DetailView):
 	model = post
 
-
-class PostCreateView(LoginRequiredMixin, CreateView):
+class PostDeleteView(LoginRequiredMixin, DeleteView):
 	model = post
-	fields= ['title', 'content']
+	success_url = reverse_lazy('home')
+
 
 def about(request):
 	return render(request, "myblog/about_me.html")

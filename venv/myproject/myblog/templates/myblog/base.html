@@ -20,25 +20,25 @@
   </div>
   <div class='nav-bar-title'>
     <h1>My blog</h1>
-    <p class='nav-bar-legend'>my little blog<br>about programming</p>
+    <p class='nav-bar-legend'>my little blog about programming</p>
   </div>
   <!--Side menu-->
-  
-  <div class='side-box'>
-    <h3> My Blog </h3>
-    <br>
-    <p> lorem ispum lorem ispum lorem ispum lorem ispum lorem 
-    ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem 
-    ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum 
-    </p>  
+  <div class= 'side-bar'>
+    <div class='side-box'>
+      <h3> My Blog </h3>
+      <br>
+      <p> lorem ispum lorem ispum lorem ispum lorem ispum lorem 
+      ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem 
+      ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum 
+      </p>  
+    </div>
+    
+    <div class='buttons'>
+      <button>
+        <a href='{% url "postCreate" %}'> Create new post </a>
+      </button> 
+    </div>
   </div>
-  
-  <div class='buttons'>
-    <button>
-      <a href='{% url "postCreate" %}'> Create new post </a>
-    </button> 
-  </div>
-  
   {% if messages %}
     {% for message in messages%}
       {{message}}
