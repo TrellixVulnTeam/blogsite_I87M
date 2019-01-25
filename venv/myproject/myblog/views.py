@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import templates
 from .models import post
 from django.views.generic import ListView, DeleteView, DetailView, CreateView
@@ -30,11 +30,11 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 
 class PostDetailView(DetailView):
 	model = post
+	
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
 	model = post
-	success_url = reverse_lazy('home')
-
+	success_url = '/'
 
 def about(request):
 	return render(request, "myblog/about_me.html")

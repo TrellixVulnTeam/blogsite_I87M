@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import Sub
+from .models import sub
 
 class SubForm(ModelForm):
 	class Meta:
-		model = Sub
+		model = sub
 		fields = ['email',]

@@ -1,51 +1,178 @@
-{% load static %}
+ {% load static %}
 <!DOCTYPE html>
 <html>
+ 
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/myblog/theme.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href= "{% static 'myblog/theme.css' %}">
-  <title></title>
-  
-</head>
-<body>
-  <div class='nav-bar'>
-    <div class='nav-bar-links'>
-      <ul class='nav-bar-links'>
-      <li><a href='{% url "home" %}'> Home </a></li>
-      <li><a href='{% url "about-me" %}'> About me </a></li>
-      <li><a href='{% url "subscribe" %}'> Subscribe! </a></li>
-      </ul>
-    </div>
-  </div>
-  <div class='nav-bar-title'>
-    <h1>My blog</h1>
-    <p class='nav-bar-legend'>my little blog about programming</p>
-  </div>
-  <!--Side menu-->
-  <div class= 'side-bar'>
-    <div class='side-box'>
-      <h3> My Blog </h3>
-      <br>
-      <p> lorem ispum lorem ispum lorem ispum lorem ispum lorem 
-      ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem 
-      ispum lorem ispum lorem ispum lorem ispum lorem ispum lorem ispum 
-      </p>  
-    </div>
-    
-    <div class='buttons'>
-      <button>
-        <a href='{% url "postCreate" %}'> Create new post </a>
-      </button> 
-    </div>
-  </div>
-  {% if messages %}
-    {% for message in messages%}
-      {{message}}
-    {% endfor %}
-  {% endif %}
-  {% block content %}
-  {% endblock content %}
+    <title></title>
 
-</body>
+  </head>
+
+  <body>
+    <div class='container-fluid'>
+      <nav class='navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary'>
+        <a class='navbar-brand' href='{% url "home" %}'> <img src=' {% static "myblog/boxingglovefull.png" %}' class='mr-2' width='80px' height='80px' '>Boxer-boxer!</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+          <ul class='navbar-nav ml-auto'>
+            <li class= 'nav-item'>
+              
+              <a class='nav-link' href='{% url "home" %}'> <img src='{% static "myblog/home.png" %}' width='30px' height='30px'> Home </a>
+            </li>
+            <li class= 'nav-item'>
+              <a class='nav-link' href='{% url "about-me" %}'> <img src='{% static "myblog/aboutme.png" %}' width='30px' height='30px'> About me </a>
+            </li>
+            <li class= 'nav-item'>
+              <a class='nav-link' href='{% url "subscribe" %}'> <img src='{% static "myblog/subscribe.png" %}' width='30px' height='30px'> Subscribe </a>
+            </li>
+            <li class= 'nav-item'>
+              <a class='nav-link' href='{% url "postCreate" %}'> Create a Post </a>
+            </li>
+          </ul>
+        </div>  
+      </nav>
+
+    <!-- It doesn't make sense to keep this here, move to 'home.html'-->
+      <div class='jumbotron div-flex flex-col bg-white'>
+        <h1 class='display-4 text-danger'>My blog</h1>
+        <p class='text-muted'>Boxer-boxer's little blog. I'll write about programming stuff I'm learning along the way as well as other stuff! </p>
+      </div>
+      
+      
+        {% if messages %}
+          {% for message in messages %}
+            <div class='alert alert-danger' role='alert'>
+              {{message}}
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+      
+
+      <div class='row'>
+        <!-- This will be for the blog posts -->
+        <div class='col-sm-12 col-md-9'>
+          <div class='container-sm-11 container-md-9'>
+              {% block content %} 
+              {% endblock content %}
+          </div>
+        </div>
+
+          <div class='col-md-3 mt-md-5 col-lg-3'>
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxingglovefull.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 1 : Save money
+                </div>
+              </div>
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 2 : Finish up this site and start my portfolio!
+                </div>
+              </div>
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 3: Create an international CV + Cover letter (Maybe something like a website?)
+                </div>
+              </div>
+
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 4: Create a bot that will scour the web looking for jobs that I would qualify to in different countries !
+                </div>
+              </div>
+
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 5: Set up a date to leave Portugal (postpone if necessary)!
+                </div>
+              </div>
+
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 6: Land a few interviews before moving
+                </div>
+              </div>
+
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 7: Get a job and find a place to stay!
+                </div>
+              </div>
+
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 8: Raise about 10.000 €
+                </div>
+              </div>
+
+
+              <div class='row mr-3 mb-2'>
+                <div class='col-md-2 text-center mr-1'>
+                  <img src='{% static "myblog/boxinggloveempty.png" %}' width='50px' height='50px'>
+                </div>
+              
+                <div class='col-md-9 ml-3 text-md-left col-sm-12 text-sm-center mb-4'>
+                  Step # 9: Move to Canada to work as a webdeveloper!
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+      </div>  
+      </div>
+    </div>
+  </body>
+
 </html>

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from myblog import views
 from myblog.views import PostListView, PostDetailView, PostDeleteView, PostCreateView, PostUpdateView
-from subscribe.views import subscribe as subscribe_views
+from subscribe.views import subscribe as subscribe_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,6 @@ urlpatterns = [
     path('post/new/', PostCreateView.as_view(), name='postCreate'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='PostUpdate'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='PostDelete'),
-    path('subscribe/', subscribe_views, name='subscribe'),
+    path('subscribe/', subscribe_view, name='subscribe'),
 
 ]

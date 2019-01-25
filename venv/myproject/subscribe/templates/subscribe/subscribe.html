@@ -2,9 +2,37 @@
 {% block content %}
    <form method='POST'>
     {% csrf_token %} 
-     {{ form.as_p }}
-     <button type=submit> OK </button>
-   </form>  
-  </div>
+   	<div class='container'>
+   	<div class='row'>	
+   		<div class= 'col-12 p-2 border mb-5'>
+      	<p class='lead'> 	{{ form.as_p }} </p>
+     	<button type=submit value='submit'> OK </button>
+      <div class='text-muted mt-2'>
+      {% for object in emails %}
+        <p> {{object.email}} </p>
+      {% endfor %}
+      </div>
+   		</div>
+   	</div>	
+   </form> 
+   </div> 
+  
 
  {% endblock content %}
+
+ <!--
+
+
+<form method='POST'>
+  {% csrf_token %}
+  <h1>Create a Post</h1>
+  <p>Title</p> 
+  <input type='text' name='title'>
+  <p>Content</p>
+  <input type='text' name='content'>
+  <p>
+  <button>
+    <input type='submit' value='Submit'>
+  </button></p>
+</form>
+-->

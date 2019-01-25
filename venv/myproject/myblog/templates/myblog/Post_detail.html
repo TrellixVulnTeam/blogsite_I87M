@@ -1,18 +1,20 @@
 {% extends 'myblog/base.html' %}
 {% block content %}
-<div class= 'blog-content'>
-  <div class='blog-post'>
-      <h1> {{ object.title }} </h1>
-      <p> posted on {{ object.posted_in }} </p>
-      <p> {{ object.content }} </p>
-	  <form action='{% url "PostUpdate" post.id %}' method='POST'>
+<div class= 'card m-3'>
+  <div class='p-2  bg-light'>
+      <h3 class='text-danger'> {{ object.title }} </h3>
+      <p class='text-muted'> posted on {{ object.posted_in }} </p>
+      <p class='p-3'> {{ object.content }} </p>
+	  <form action='{% url "PostUpdate" post.id %}' method='POST' class='d-inline mr-2'>
 	   	{% csrf_token %}
 	     	<input type='submit' value='Update'>
 	  </form>
-	  <form action = '{% url "PostDelete" post.id %}' method= 'POST'>
+	  <form action = '{% url "PostDelete" post.id %}' method= 'POST' class='d-inline'>
 	  	{% csrf_token %}
 	  		<input type='submit' value='Delete'>
-  </div>
-</div>  
+	  	</form>
+	</div>
+</div>
+  
 {% endblock content %}
    
